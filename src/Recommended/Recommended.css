@@ -1,23 +1,39 @@
- .recommended-flex {
+.recommended-flex {
   display: flex;
-  margin-left: 20rem;
+  margin-left: 20rem; /* Space for sidebar */
+  padding-right: 2rem;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 6px; /* Consistent spacing */
+  margin-bottom: 10px; /* Small gap before products */
 }
 
 .recommended-title {
-  margin-left: 20rem;
+  margin-left: 20rem; /* Space for sidebar */
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 100px; /* Space for fixed navbar */
   font-size: 20px;
   font-family: sans-serif;
+  padding-right: 2rem;
 }
 
 .btns {
   padding: 10px 20px;
-  margin-right: 6px;
   background: transparent;
-  border: none;
   border: 0.6px solid #ccc;
   border-radius: 5px;
   color: #323232;
   cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  white-space: nowrap; /* Prevent button text wrapping */
+}
+
+.btns:hover {
+  background-color: #f8f8f8;
+  border-color: #999;
+  transform: translateY(-1px);
+}
+
+.btns:active {
+  transform: translateY(0);
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Nav from "./Navigation/Nav";
 import Products from "./Products/Products";
 import Recommended from "./Recommended/Recommended";
@@ -15,17 +15,19 @@ const App = () => {
     setQuery(event.target.value);
   };
 
-  const filteredItem = products.filter(
-    (product) =>
-      product.title.toLowerCase().includes(query.toLowerCase()) !== -1
-  );
+  // Memoize filtered items for better performance
+  const filteredItems = useMemo(() => {
+    return products.filter((product) =>
+      product.title.toLowerCase().includes(query.toLowerCase())
+    );
+  }, [query]);
 
-  //Radio Filter
+  // Radio Filter
   const handleChange = (event) => {
     setSelectedCategory(event.target.value);
   };
 
-  //Radio Filter
+  // Button Filter
   const handleClick = (event) => {
     setSelectedCategory(event.target.value);
   };
@@ -33,26 +35,34 @@ const App = () => {
   function filteredData(products, selected, query) {
     let filteredProducts = products;
 
+    // Apply search filter
     if (query) {
-      filteredProducts = filteredItem;
+      filteredProducts = filteredItems;
     }
 
-    //Selected Filter
+    // Apply category/color/company filter
     if (selected) {
       filteredProducts = filteredProducts.filter(
-        ({ category, color, company, title, newPrice }) =>
-          category === selected ||
-          color === selected ||
-          company === selected ||
-          title === selected ||
-          newPrice === selected
+        ({ category, color, company, title, newPrice }) => {
+          // For price filtering, convert strings to numbers
+          const price = parseInt(newPrice);
+          const selectedPrice = parseInt(selected);
+
+          return (
+            category === selected ||
+            color === selected ||
+            company === selected ||
+            title === selected ||
+            (selectedPrice && price <= selectedPrice)
+          );
+        }
       );
     }
 
     return filteredProducts.map(
-      ({ img, title, star, reviews, prevPrice, newPrice }) => (
+      ({ img, title, star, reviews, prevPrice, newPrice }, index) => (
         <Card
-          key={Math.random() * 1000}
+          key={`${title}-${index}`}
           img={img}
           title={title}
           star={star}
@@ -75,5 +85,5 @@ const App = () => {
     </>
   );
 };
- 
+
 export default App;

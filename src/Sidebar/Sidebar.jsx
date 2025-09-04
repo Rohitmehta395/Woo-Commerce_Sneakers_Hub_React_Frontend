@@ -1,5 +1,5 @@
 import React from "react";
-import { IoCartOutline } from "react-icons/io5";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import Category from "./Category/Category";
 import Price from "./Price/Price";
 import Colors from "./Colors/Colors";
@@ -7,18 +7,14 @@ import "./Sidebar.css";
 
 const Sidebar = ({ handleChange }) => {
   return (
-    <>
-      <section className="sidebar">
-        <div className="logo-container">
-          <h1>
-            <IoCartOutline />
-          </h1>
-        </div>
-        <Category handleChange={handleChange} />
-        <Price handleChange={handleChange} />
-        <Colors handleChange={handleChange} />
-      </section>
-    </>
+    <section className="sidebar">
+      <div className="logo-container">
+        <AiOutlineShoppingCart className="sidebar-logo" />
+      </div>
+      <Category handleChange={handleChange} />
+      <Price handleChange={handleChange} />
+      <Colors handleChange={handleChange} />
+    </section>
   );
 };
 

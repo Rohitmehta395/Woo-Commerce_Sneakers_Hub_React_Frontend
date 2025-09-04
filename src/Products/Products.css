@@ -1,9 +1,10 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 20rem;
-  margin-top: 2rem;
-  z-index: -2;
+  margin-left: 20rem; /* Space for sidebar */
+  margin-top: 20px; /* Reduced gap from recommendations */
+  padding: 1rem 2rem 2rem 0; /* Reduced top padding */
+  min-height: calc(100vh - 100px); /* Ensure content fills remaining height */
 }
 
 .card {
@@ -11,29 +12,46 @@
   border: 2px solid #ededed;
   padding: 20px;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add hover effects */
+  background-color: white;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .card-img {
   width: 13rem;
   margin-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .card-img {
+  transform: scale(1.02);
 }
 
 .card-title {
   margin-bottom: 1rem;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .card-reviews {
   margin-bottom: 1rem;
   display: flex;
+  align-items: center;
 }
 
 .rating-star {
   color: #d5ab55;
+  font-size: 14px;
 }
 
 .total-reviews {
   font-size: 0.9rem;
   margin-left: 10px;
+  color: #666;
 }
 
 .card-price {
@@ -42,6 +60,17 @@
   align-items: center;
 }
 
+.price del {
+  color: #999;
+  margin-right: 8px;
+}
+
 .bag-icon {
   color: #535353;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.bag-icon:hover {
+  color: #000;
 }

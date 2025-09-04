@@ -8,11 +8,15 @@ const Nav = ({ query, handleInputChange }) => {
   return (
     <nav>
       <div className="nav-container">
-        {/* <img
-          src="../creative-simple-dragons-silhouettes-logo-stylized-vector-illustrations-simple-dragons-silhouettes-logo-130475058.webp"
-          alt="logo"
-          className="logo"
-        /> */}
+        <div className="logo-section">
+          <img
+            src="/creative-simple-dragons-silhouettes-logo-stylized-vector-illustrations-simple-dragons-silhouettes-logo-130475058.webp"
+            alt="Sneaker's Hub Logo"
+            className="navbar-logo"
+          />
+          <span className="brand-name">Sneaker's Hub</span>
+        </div>
+
         <div className="search-input">
           <input
             type="text"

@@ -9,7 +9,7 @@ const Category = ({ handleChange }) => {
         <h2 className="sidebar-title">Category</h2>
         <div>
           <label className="sidebar-label-container">
-            <input onChange={handleChange} type="radio" value="" name="test" />
+            <input onChange={handleChange} type="radio" value="" name="test" defaultChecked='true' />
             <span className="checkmark"></span>All
           </label>
 
@@ -27,14 +27,14 @@ const Category = ({ handleChange }) => {
           />
           <Input
             handleChange={handleChange}
-            value="sandles"
-            title="Sandles"
+            value="sandals" // Fixed: was "sandles"
+            title="Sandals"
             name="test"
           />
           <Input
             handleChange={handleChange}
-            value="heals"
-            title="Heals"
+            value="heels" // Fixed: was "heals"
+            title="Heels"
             name="test"
           />
         </div>

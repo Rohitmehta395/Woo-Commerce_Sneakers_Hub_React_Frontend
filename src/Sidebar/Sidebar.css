@@ -1,18 +1,46 @@
 .sidebar {
   width: 15%;
   position: fixed;
-  height: 100%;
+  height: 100vh; /* Full viewport height */
+  top: 70px; /* Start below the navbar (navbar height is 70px) */
+  left: 0;
   border-right: 2px solid #e5e5e5;
-  z-index: 3;
+  z-index: 999; /* Lower than navbar but above content */
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white; /* Add background */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-bottom: 20px; /* Add some bottom padding */
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px; /* Thin scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
 }
 
 .logo-container {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  position: sticky; /* Keep logo visible at top of sidebar */
+  top: 0;
+  background-color: white;
+  padding: 10px 0;
+  z-index: 1;
 }
 
 .logo-container h1 {
-  margin-top: 1.3rem;
+  margin-top: 0.5rem;
 }
